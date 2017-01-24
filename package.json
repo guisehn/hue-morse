@@ -1,0 +1,17 @@
+{
+  "name": "hue-morse",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ghsehn@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "lodash": "^4.17.4",
+    "morse": "^0.1.0",
+    "node-hue-api": "^2.4.1"
+  }
+}
