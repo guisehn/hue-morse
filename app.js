@@ -4,6 +4,8 @@ require('dotenv').config({ silent: true })
 
 const DIT_DURATION = 100
 const DAH_DURATION = DIT_DURATION * 3
+const LETTER_SPACING = DAH_DURATION
+const WORD_SPACING = DIT_DURATION * 7
 
 const _ = require('lodash')
 const readline = require('readline')
@@ -47,8 +49,11 @@ function symbolToRhythm (symbol) {
         [false, DIT_DURATION]
       ]
 
+    case '/':
+      return [[false, WORD_SPACING]]
+
     case ' ':
-      return [[false, DIT_DURATION]]
+      return [[false, DAH_DURATION]]
 
     default:
       return []
@@ -69,7 +74,7 @@ function printMorse (lights, rhytm, index) {
 
 getMorseLights().then(lights => {
   askInput(answer => {
-    let encoded = morse.encode(answer)
+    let encoded = morse.encode(answer.split(' ')).join('/')
     console.log(`Morse: ${encoded}`)
 
     let rhytm = _(encoded).map(symbolToRhythm).flatten().value()
